@@ -1,0 +1,278 @@
+{
+  "categories": [
+    { "id": "power-bi", "label": "Power BI", "icon": "chart", "accent": "gold", "description": "Dashboards, modélisation en étoile, DAX, Power Query" },
+    { "id": "automatisation", "label": "Automatisations", "icon": "bolt", "accent": "teal", "description": "Workflows, scripts Python, orchestration" },
+    { "id": "ia", "label": "Intelligence Artificielle", "icon": "brain", "accent": "violet", "description": "Computer vision, LLM local, data science" },
+    { "id": "agentic-ia", "label": "Agentic IA (n8n)", "icon": "network", "accent": "coral", "description": "Agents et workflows autonomes" },
+    { "id": "applications", "label": "Applications", "icon": "window", "accent": "blue", "description": "Apps internes, interfaces métier" }
+  ],
+  "certifications": [
+    {
+      "id": "Power_bi_certif",
+      "name": "Power BI - Power Query - Power Pivot - Analyse de données - Graphiques - Visualisations - DAX - Power BI Service -Claude",
+      "issuer": "Udemy",
+      "status": "Obtenue",
+      "date": "2023",
+      "description": "Maîtrise de la chaîne complète Power BI : transformation et nettoyage des données avec Power Query (langage M), modélisation et calculs avancés en DAX (mesures, colonnes calculées, time intelligence, RANKX), création de visuels, et administration via Power BI Service.",
+      "credentialUrl": "assets/certifications/Power_bi_certif.pdf",
+      "logo": "images/certifications/udemy.png"
+
+    },
+    {
+    "id": "Data_science_certif",
+    "name": "Data Science, Python, Machine learning, data viz, data mining, SQL, API, Web scraping, big data, Jupyter",
+    "issuer": "Udemy",
+    "status": "Obtenue",
+    "date": "date de certification : 2021, date de téléchargement : 2026",
+    "description": "Fondamentaux du langage Python appliqué à la data : manipulation avec les librairies populaires, extraction (fichiers, API, SQL, webscraping), analyse de données, data visualisation, et construction de premiers modèles de machine learning.",
+    "credentialUrl": "assets/certifications/Data_science_certif.pdf",
+    "logo": "images/certifications/udemy.png"
+  }
+  ],
+  "projects": [
+    {
+      "id": "cheque-vision",
+      "title": "Reconnaissance intelligente de chèques",
+      "subtitle": "Computer vision + LLM local pour l'automatisation de la remise en banque",
+      "sector": "Assurance / Services",
+      "categories": ["ia", "automatisation"],
+      "confidential": true,
+      "confidentialNote": "Projet réalisé en entreprise (123 Pare-brise) code non public, démonstration disponible en entretien.",
+      "objective": "Automatiser la reconnaissance et l'extraction d'informations de chèques scannés dans des lettres-chèques PDF, pour fiabiliser et accélérer le processus de remise en banque.",
+      "context": "Les lettres-chèques arrivent en PDF et nécessitaient une saisie manuelle. L'objectif était de détecter automatiquement les zones utiles (chèque, montant, IBAN...) et d'en extraire les données de façon fiable.",
+      "tools": ["YOLO", "CVAT", "LLM local (Qwen / Mistral)", "Python", "Django", "Nginx", "systemd"],
+      "languages": ["Python"],
+      "workflowSteps": [
+        "Annotation d'un jeu d'images de chèques avec CVAT",
+        "Entraînement d'un modèle de détection YOLO en local",
+        "Extraction des zones détectées puis lecture par un LLM local pour structurer les champs",
+        "Suivi des métriques du modèle (mAP@50, F1) via une application de monitoring",
+        "Déploiement en ligne (Nginx, systemd, authentification)"
+      ],
+      "workflowImage": "images/projects/cheque-vision-workflow.png",
+      "screenshots": [
+        { "src": "images/projects/cheque-vision-monitoring.png", "caption": "Suivi des métriques du modèle en production" }
+      ],
+      "usageSteps": [
+        "Déposer la lettre-chèque au format PDF dans l'interface",
+        "Le système détecte automatiquement chaque chèque et extrait les champs",
+        "L'utilisateur vérifie et valide les champs extraits en un clic",
+        "Export des données validées vers le système de remise en banque"
+      ],
+      "results": [
+        "mAP@50 ~ 98% sur la détection des chèques",
+        "F1 score ~ 97% sur l'extraction des champs",
+        "Réduction du temps de traitement manuel"
+      ],
+      "code": { "public": false, "url": null },
+      "liveUrl": null,
+      "status": "complete"
+    },
+    {
+      "id": "powerbi-dashboards",
+      "title": "Dashboards Power BI",
+      "subtitle": "Reporting décisionnel multi-domaines - modélisation, DAX, automatisation des flux",
+      "sector": "Retail / Banque / Multi-secteurs",
+      "categories": ["power-bi", "automatisation"],
+      "confidential": false,
+      "confidentialNote": "Certains cas contiennent des données réelles d'entreprise (non publiques) ; d'autres sont des simulations 100% publiques - voir le détail de chaque cas.",
+      "objective": "Concevoir des dashboards Power BI orientés décision : modélisation en étoile, mesures DAX, et automatisation des flux d'alimentation pour que les rapports restent à jour sans intervention manuelle.",
+      "context": "Ce projet regroupe plusieurs mandats de reporting BI réalisés pour des besoins métier différents (web analytics, marketing, performance financière).",
+      "tools": ["Power BI", "DAX", "Power Query (M)", "Python", "Airflow", "API REST", "PostgreSQL"],
+      "languages": ["DAX", "M", "Python", "SQL"],
+      "workflowSteps": [
+        "Cadrage des indicateurs avec les équipes métier",
+        "Extraction des données (API REST, base SQL) et orchestration avec Airflow",
+        "Modélisation en étoile et écriture des mesures DAX",
+        "Publication et actualisation automatique des rapports"
+      ],
+      "workflowImage": "images/projects/powerbi-workflow.png",
+      "screenshots": [],
+      "usageSteps": [],
+      "results": [],
+      "code": { "public": false, "url": null },
+      "liveUrl": null,
+      "status": "complete",
+      "subprojects": [
+        {
+          "id": "matomo-web-analytics",
+          "title": "Dashboard Web Analytics - campagnes, avis Google, marketing",
+          "sector": "Retail",
+          "confidential": true,
+          "confidentialNote": "Projet réalisé en entreprise - données et fichier Power BI non publics.",
+          "objective": "Centraliser les données web analytics (avis Google, campagnes marketing, appareils, pages vues, sources de trafic, visites) issues de Matomo et d'autres sources dans un dashboard actualisé automatiquement.",
+          "tools": ["Power BI", "DAX", "Power Query (M)", "Python", "Airflow", "API REST"],
+          "workflowSteps": [
+            "Extraction automatisée via API REST (Matomo, avis Google, campagnes marketing)",
+            "Orchestration des extractions avec Airflow",
+            "Modélisation des données et écriture des mesures DAX",
+            "Publication automatique du rapport dans Power BI Service"
+          ],
+          "workflowImage": "images/projects/matomo-workflow.png",
+          "screenshots": [],
+          "usageSteps": [
+            "Ouvrir le rapport dans Power BI Service",
+            "Sélectionner la période et le canal d'acquisition via les filtres",
+            "Visualiser le détail par page, appareil ou source de trafic"
+          ],
+          "results": ["Consolidation automatique de sources multiples via API", "Suppression de la saisie manuelle quotidienne"],
+          "code": { "public": false, "url": null },
+          "liveUrl": null
+        },
+        {
+          "id": "bankperf360",
+          "title": "BankPerf360 - Performance financière (simulation banque régionale)",
+          "sector": "Banque",
+          "confidential": false,
+          "confidentialNote": "Projet portfolio 100% simulé (données synthétiques) - code et données publics.",
+          "objective": "Simuler une mission de data consultant pour une banque régionale : suivre la performance financière (PNB, encours, risque) sur un référentiel de 50 000 transactions couvrant 7 tables, avec restitution pour un comité de direction.",
+          "tools": ["Python", "Faker", "PostgreSQL", "Power BI", "DAX", "Power Query (M)"],
+          "workflowSteps": [
+            "Génération de données synthétiques réalistes (50 000 transactions, 7 tables) avec Faker",
+            "ETL Python avec calculs de KPI et scoring de risque",
+            "Upsert PostgreSQL et schéma en étoile avec vues analytiques",
+            "40+ mesures DAX (PNB estimé, encours, risque, tendances)",
+            "Dashboards multi-pages pour un comité de direction fictif"
+          ],
+          "workflowImage": "images/projects/bankperf360-workflow.png",
+          "screenshots": [
+            { "src": "images/projects/bankperf360-dashboard-1.png", "caption": "Vue d'ensemble - PNB, encours, risque" },
+            { "src": "images/projects/bankperf360-dashboard-2.png", "caption": "Analyse détaillée par agence" }
+          ],
+          "usageSteps": [
+            "Ouvrir le fichier .pbix fourni dans Power BI Desktop",
+            "Cliquer sur l'onglet 'Vue d'ensemble' pour les KPI globaux",
+            "Filtrer par agence ou période en haut à droite",
+            "Cliquer sur une carte KPI pour le détail (drill-through) par client"
+          ],
+          "results": ["40+ mesures DAX", "Pipeline ETL traitant 50 000 transactions", "Schéma en étoile avec vues analytiques"],
+          "code": { "public": true, "url": "https://github.com/mouhamed-dia/bankperf360" },
+          "liveUrl": null
+        }
+      ]
+    },
+    {
+      "id": "applications",
+      "title": "Applications internes",
+      "subtitle": "Interfaces métier développées pour faciliter le travail des équipes",
+      "sector": "Multi-secteurs",
+      "categories": ["applications", "automatisation"],
+      "confidential": false,
+      "confidentialNote": "Certaines applications ont été développées en entreprise et ne sont pas publiques - voir le détail de chaque cas.",
+      "objective": "Développer des applications web internes (Streamlit, Django) pour simplifier des tâches métier récurrentes : suivi de performance, extraction de KPI, saisie assistée.",
+      "context": "Ce projet regroupe les applications développées pour différents besoins métier au fil des missions.",
+      "tools": ["Python", "Streamlit", "Django", "Nginx", "systemd"],
+      "languages": ["Python", "JavaScript"],
+      "workflowSteps": [],
+      "workflowImage": null,
+      "screenshots": [],
+      "usageSteps": [],
+      "results": [],
+      "code": { "public": false, "url": null },
+      "liveUrl": null,
+      "status": "complete",
+      "subprojects": [
+        {
+          "id": "carrefour-streamlit",
+          "title": "Suivi de performance nationale - Data Cobotique (Streamlit)",
+          "sector": "Grande distribution",
+          "confidential": true,
+          "confidentialNote": "Stage de fin d'études - Carrefour France. Code non public.",
+          "objective": "Suivre à l'échelle nationale la performance des prestataires de nettoyage (projet Data Cobotique) et faciliter la remontée des incidents auprès des équipes terrain.",
+          "tools": ["Python", "Streamlit", "ServiceNow"],
+          "workflowSteps": [
+            "Définition des indicateurs de performance pertinents avec les équipes métier",
+            "Développement de l'application web de visualisation (Streamlit)",
+            "Suivi hebdomadaire de la performance des prestataires",
+            "Présentation des résultats et formation des équipes"
+          ],
+          "workflowImage": "images/projects/carrefour-workflow.png",
+          "screenshots": [],
+          "usageSteps": [
+            "Se connecter à l'application interne",
+            "Sélectionner un prestataire ou une région dans le menu",
+            "Consulter les indicateurs hebdomadaires et signaler un écart en un clic"
+          ],
+          "results": ["Suivi hebdomadaire national déployé auprès des équipes terrain", "Présentation validée par un comité directeur"],
+          "code": { "public": false, "url": null },
+          "liveUrl": null
+        },
+        {
+          "id": "django-kpi-app",
+          "title": "Application Django - suivi des KPI métiers et des modèles IA",
+          "sector": "Assurance / Services",
+          "confidential": true,
+          "confidentialNote": "Projet réalisé en entreprise (123 Pare-brise) - code non public.",
+          "objective": "Fournir une application interne (Django) pour le suivi quotidien des KPI métiers et le suivi des métriques des modèles IA entraînés en local, avec authentification et déploiement en ligne.",
+          "tools": ["Python", "Django", "Nginx", "systemd"],
+          "workflowSteps": [
+            "Extraction quotidienne automatisée des KPI métiers",
+            "Suivi des métriques des modèles IA entraînés en local",
+            "Déploiement en ligne avec Nginx, systemd et authentification"
+          ],
+          "workflowImage": null,
+          "screenshots": [],
+          "usageSteps": [],
+          "results": [],
+          "code": { "public": false, "url": null },
+          "liveUrl": null
+        }
+      ]
+    },
+    {
+      "id": "agentic-hr-contracts",
+      "title": "Agent IA - Génération automatisée de contrats RH",
+      "subtitle": "Workflow agentique (n8n) - à compléter",
+      "sector": "RH",
+      "categories": ["agentic-ia", "automatisation"],
+      "confidential": false,
+      "confidentialNote": "Projet en cours de documentation - détails et captures à venir.",
+      "objective": "Automatiser de bout en bout la génération des contrats RH : collecte des informations candidat, notification des équipes, création de dossiers, et génération du contrat selon le poste, via un agent orchestré sur n8n.",
+      "context": "Ce projet est en cours d'ajout au portfolio. La version actuelle du workflow repose sur Google Forms / Apps Script ; une migration vers un agent n8n est en cours de documentation.",
+      "tools": ["n8n", "Google Forms", "Apps Script"],
+      "languages": ["JavaScript"],
+      "workflowSteps": [
+        "Collecte automatique des informations et pièces justificatives du candidat",
+        "Notification automatique des assistantes régionales",
+        "Création automatique de dossiers structurés par région et par candidat",
+        "Génération du contrat selon les articles applicables au poste, en un clic"
+      ],
+      "workflowImage": null,
+      "screenshots": [],
+      "usageSteps": [],
+      "results": [],
+      "code": { "public": false, "url": null },
+      "liveUrl": null,
+      "status": "draft"
+    },
+    {
+      "id": "techcare",
+      "title": "TechCare - Bien-être animal",
+      "subtitle": "Suivi du comportement des ruminants à l'abreuvoir (projet européen)",
+      "sector": "Agri / Recherche",
+      "categories": ["ia"],
+      "confidential": true,
+      "confidentialNote": "Projet institutionnel (IDELE, projet européen TechCare) - données de fermes pilotes non diffusables.",
+      "objective": "Analyser le comportement des animaux (bovins, ovins) à l'abreuvoir pour en déduire des indicateurs de bien-être animal, dans le cadre du projet de recherche européen TechCare.",
+      "context": "Données expérimentales collectées sur fermes pilotes, analysées pour proposer des indicateurs de suivi et des axes d'amélioration.",
+      "tools": ["R", "Statistiques descriptives"],
+      "languages": ["R"],
+      "workflowSteps": [
+        "Collecte des données expérimentales sur fermes pilotes",
+        "Nettoyage et transformation des données",
+        "Analyse statistique et définition des KPI de comportement",
+        "Rédaction du rapport technique pour le consortium européen"
+      ],
+      "workflowImage": "images/projects/techcare-workflow.png",
+      "screenshots": [],
+      "usageSteps": [],
+      "results": [
+        "Indicateurs de comportement à l'abreuvoir définis et documentés",
+        "Rapport technique livré au consortium européen TechCare"
+      ],
+      "code": { "public": false, "url": null },
+      "liveUrl": null,
+      "status": "complete"
+    }
+  ]
+}
