@@ -144,10 +144,10 @@ function renderProjectGrid(data, filter) {
 
 function renderKpiTicker(data) {
   const items = [
-    'BankPerf360 — <strong>50 000</strong> transactions synthétiques traitées',
-    '<strong>40+</strong> mesures DAX écrites',
-    'Détection de chèques — <strong>mAP@50 ~ 98%</strong>',
-    'Extraction de champs — <strong>F1 score ~ 97%</strong>',
+    // 'BankPerf360 - <strong>50 000</strong> transactions synthétiques traitées',
+    `${ICONS.powerbi} <strong>Power BI</strong> - 100+ Mesures DAX écrites`,
+    `<strong> IA : LLM + computer vision + Regex -  </strong> Détection automatique de chèques - <strong>Métriques : mAP@50 ~ 98%</strong>`,
+    'Extraction de champs - <strong>F1 score ~ 97%</strong>',
     `<strong>${data.projects.length}+</strong> projets documentés dans ce portfolio`,
     'Dashboards Power BI alimentés automatiquement via <strong>Airflow</strong>',
     'Reporting web analytics multi-sources (<strong>Matomo, API REST</strong>)'
@@ -201,7 +201,7 @@ function renderWorkflow(project) {
   if (!project.workflowSteps || !project.workflowSteps.length) return '';
   return `
     <div class="project-section">
-      <h2><span class="num">1</span> Workflow</h2>
+      <h2>Workflow</h2>
       <p>Étapes suivies pour mener le projet, de la donnée brute à la restitution.</p>
       ${project.workflowImage ? `<div class="shot-card" style="margin-bottom:20px;"><img src="${project.workflowImage}" alt="Schéma du workflow"></div>` : ''}
       <ol class="workflow-steps">
@@ -214,7 +214,7 @@ function renderScreenshots(project) {
   const shots = project.screenshots || [];
   return `
     <div class="project-section">
-      <h2><span class="num">2</span> Interface & résultats</h2>
+      <h2>Interface & résultats</h2>
       <p>Aperçu de l'interface, de l'expérience utilisateur et des résultats obtenus.</p>
       <div class="shot-grid">
         ${shots.length ? shots.map(s => `
@@ -222,7 +222,7 @@ function renderScreenshots(project) {
             <img src="${s.src}" alt="${escapeHtml(s.caption || project.title)}" loading="lazy">
             <div class="shot-caption">${escapeHtml(s.caption || '')}</div>
           </div>`).join('') : `
-          <div class="shot-card"><div class="shot-placeholder">Captures d'écran à ajouter — voir /images/projects</div></div>`}
+          <div class="shot-card"><div class="shot-placeholder">Captures d'écran à ajouter - voir /images/projects</div></div>`}
       </div>
     </div>`;
 }
@@ -263,14 +263,14 @@ function renderSubprojects(project) {
             <div class="subproject-head">
               <div>
                 <h3>${escapeHtml(sp.title)}</h3>
-                <div style="font-family:var(--font-mono);font-size:0.75rem;color:var(--text-light-dim);margin-top:4px;">${escapeHtml(sp.sector)} — ${sp.confidential ? 'Confidentiel' : 'Public'}</div>
+                <div style="font-family:var(--font-mono);font-size:0.75rem;color:var(--text-light-dim);margin-top:4px;">${escapeHtml(sp.sector)} - ${sp.confidential ? 'Confidentiel' : 'Public'}</div>
               </div>
               <span class="chevron">${ICONS.chevron}</span>
             </div>
             <div class="subproject-panel">
               <div class="subproject-panel-inner">
                 ${renderConfidentialBanner(sp)}
-                <p><strong style="color:var(--text-light)">Objectif —</strong> ${escapeHtml(sp.objective)}</p>
+                <p><strong style="color:var(--text-light)">Objectif -</strong> ${escapeHtml(sp.objective)}</p>
                 ${renderTags(sp.tools)}
                 ${sp.workflowSteps && sp.workflowSteps.length ? `
                   <h4 style="font-family:var(--font-mono);font-size:0.74rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-light-dim);margin:20px 0 10px;">Workflow</h4>
@@ -284,7 +284,7 @@ function renderSubprojects(project) {
                 <div style="margin-top:20px;">
                   ${sp.code && sp.code.public && sp.code.url
                     ? `<a class="btn btn-ghost" href="${sp.code.url}" target="_blank" rel="noopener">${ICONS.github} Voir le code</a>`
-                    : `<div class="code-locked">${ICONS.lock} Code non public pour ce cas — disponible sur demande en entretien</div>`}
+                    : `<div class="code-locked">${ICONS.lock} Code non public pour ce cas - disponible sur demande en entretien</div>`}
                 </div>
               </div>
             </div>
@@ -314,7 +314,7 @@ function renderSidePanel(data, project) {
       <h3>Code source</h3>
       ${project.code && project.code.public && project.code.url
         ? `<a class="btn btn-primary" style="width:100%;justify-content:center;" href="${project.code.url}" target="_blank" rel="noopener">${ICONS.github} Voir le code sur GitHub</a>`
-        : `<div class="code-locked">${ICONS.lock} Non public — disponible sur demande en entretien</div>`}
+        : `<div class="code-locked">${ICONS.lock} Non public - disponible sur demande en entretien</div>`}
     </div>
     ${project.liveUrl ? `
     <div class="side-panel">
@@ -339,7 +339,7 @@ async function initProjectPage() {
   }
 
   const { project, parent, isSub } = found;
-  document.title = `${project.title} — Mouhamed Dia`;
+  document.title = `${project.title} - Mouhamed Dia`;
 
   const breadcrumbHtml = `
     <div class="breadcrumb">
@@ -361,7 +361,7 @@ async function initProjectPage() {
       <div class="project-body">
         <div class="project-main">
           <div class="project-section">
-            <h2><span class="num">0</span> Objectif</h2>
+            <h2>Objectif</h2>
             <p>${escapeHtml(project.objective)}</p>
             ${project.context ? `<p>${escapeHtml(project.context)}</p>` : ''}
           </div>

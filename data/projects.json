@@ -37,7 +37,7 @@
       "sector": "Assurance / Services",
       "categories": ["ia", "automatisation"],
       "confidential": true,
-      "confidentialNote": "Projet réalisé en entreprise (123 Pare-brise) code non public, démonstration disponible en entretien.",
+      "confidentialNote": "Projet réalisé en entreprise (123 Pare-brise) code non public, démonstration disponible en entretien avec l'accord de l'entreprise.",
       "objective": "Automatiser la reconnaissance et l'extraction d'informations de chèques scannés dans des lettres-chèques PDF, pour fiabiliser et accélérer le processus de remise en banque.",
       "context": "Les lettres-chèques arrivent en PDF et nécessitaient une saisie manuelle. L'objectif était de détecter automatiquement les zones utiles (chèque, montant, IBAN...) et d'en extraire les données de façon fiable.",
       "tools": ["YOLO", "CVAT", "LLM local (Qwen / Mistral)", "Python", "Django", "Nginx", "systemd"],
@@ -49,9 +49,11 @@
         "Suivi des métriques du modèle (mAP@50, F1) via une application de monitoring",
         "Déploiement en ligne (Nginx, systemd, authentification)"
       ],
-      "workflowImage": "images/projects/cheque-vision-workflow.png",
+      "workflowImage": "images/projects/cheque-workflow.jpg",
       "screenshots": [
-        { "src": "images/projects/cheque-vision-monitoring.png", "caption": "Suivi des métriques du modèle en production" }
+        { "src": "images/projects/Contexte_projet_cheque.jpg", "caption": "Contexte : du traitement manuel au projet IA" },
+        { "src": "images/projects/cheque-cvat-annotation.jpg", "caption": "Annotation du dataset dans CVAT" },
+        { "src": "images/projects/cheque-extraction-micr.jpg", "caption": "Zones d'extraction - exemple en format MICR" }
       ],
       "usageSteps": [
         "Déposer la lettre-chèque au format PDF dans l'interface",
